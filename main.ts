@@ -1,6 +1,10 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(playerSprite, characterAnimations.rule(Predicate.MovingUp))
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(assets.image`projectile`, playerSprite, 50, 0)
+    pause(1000)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(playerSprite, characterAnimations.rule(Predicate.MovingLeft))
 })
@@ -382,6 +386,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(playerSprite, characterAnimations.rule(Predicate.MovingDown))
 })
+let projectile: Sprite = null
 let playerSprite: Sprite = null
 scene.setBackgroundColor(7)
 playerSprite = sprites.create(img`
